@@ -18,7 +18,7 @@ class kicktraqSpider(Spider):
         number_pages = int(response.xpath('//div[@class="paging"]/a[contains(@title,"go to page") and not(@class="prn")][last()]/text()').extract_first())
 
         # List comprehension to construct all the urls
-        result_urls = ['https://www.kicktraq.com/archive?page={}'.format(x) for x in range(1200,1220)] # Only top 2500 pages are allowed to scrape by kicktraq.com
+        result_urls = ['https://www.kicktraq.com/archive?page={}'.format(x) for x in range(1200,1204)] # Only top 2500 pages are allowed to scrape by kicktraq.com
 
         # Show pages to scrape and yield to next level
         for url in result_urls:
