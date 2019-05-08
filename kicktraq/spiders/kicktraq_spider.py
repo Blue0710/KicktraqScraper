@@ -23,6 +23,8 @@ class kicktraqSpider(Spider):
         # Show pages to scrape and yield to next level
         for url in result_urls:
             yield Request(url=url, callback=self.parse_result_page)
+            print('smthhhhhh')
+            print('*' * 50)
             #time.sleep(random.randint(0,1))
 
 
@@ -30,8 +32,13 @@ class kicktraqSpider(Spider):
 
         detail_urls = response.xpath('//div[@class="project-infobox"]/h2/a/@href').extract()
 
+        print('burayi yaz bakalim')
+        print(detail_urls)
+
         for url in detail_urls:
             yield Request(url='https://www.kicktraq.com' + url, callback=self.parse_detail_page)
+            print('Checkpoint')
+            print('*' * 50)
             #time.sleep(random.randint(1,2))
 
 
